@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<style>
+		#parent{
+/*			width:900px;*/
+			width:300px;
+			height:400px;
+			display:flex;/*默认主轴→,主轴起点对齐,交叉轴起点对齐*/
+			border:2px solid #f00;
+			font:50px "mv boli";
+		}
+		#d1,#d2,#d3{width:200px;height:200px;}
+		#d1{background:#faa;
+		flex-grow:1;
+    /*  flex-shrink:1;*/
+		}
+		#d2{background:#ff0;
+/*		flex-grow:2;*/
+      /*flex-shrink:2;*/
+		}
+		#d3{background:#0ff;
+/*		flex-grow:3;*/
+    /*  flex-shrink:3;*/
+		}
+	</style>
+ </head>
+ <body>
+		<div id="parent">
+			<div id="d1">1</div>
+			<div id="d2">2</div>
+			<div id="d3">3</div>
+		</div>
+ </body>
+</html>

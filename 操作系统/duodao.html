@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>多道系统</title>
+		<style>
+			tr{
+				height: 100px;	
+			}
+			td{width: 80px;
+			color: black;
+			text-align: center;
+			}
+			#bt1{
+				height: 80px;
+			}
+			#bt2{
+				font-size: 30px;
+			}
+			#bgtr{
+				height: 50px;
+			}
+		</style>
+
+	</head>
+	<script type="text/javascript">
+	
+		function add(){
+			var a1=fm.a1.value;
+			var a2=fm.a2.value;
+			var a3=fm.a3.value;
+			var b1=fm.b1.value;
+			var b2=fm.b2.value;
+			var b3=fm.b3.value;
+			var c1=fm.c1.value;
+			var c2=fm.c2.value;
+			var c3=fm.c3.value;
+			
+			var sum=0;
+			var sum1=parseInt(a1)+parseInt(a3)+parseInt(b1)+parseInt(b3)+parseInt(c1)+parseInt(c3);
+			var sum2=parseInt(a1)+parseInt(a2)+parseInt(b2)+parseInt(c2);
+			if (sum1=sum2) {
+				sum=sum2;
+				document.getElementById("result").value=sum;
+			}
+			
+		}
+		
+	</script>
+	<body>
+		<form action="#"  name="fm"><table id="bg"  align="center" color: inherit; border="1px" cellspacing="0" >
+			<tr id="bt1">
+				<td colspan="5" align="center"><font id="bt2" face="华文新魏" color="black">多道程序系统</font></td>
+			</tr>
+			<tr id="bgtr">
+				<td style="color: black;">操作
+				</td>
+				<td style="color: black;">计算
+				</td>
+				<td style="color: black;">I/O
+				</td>
+				<td style="color: black;">计算
+				</td>
+			</tr>
+			<tr>
+				<td>A</td>
+				<td><input id="a1" 
+				style="width: 80px; font-size: 20px; height: 100px;text-align: center;"/></td>
+				<td><input id="a2" style="width: 80px; font-size: 20px; height: 100px;text-align: center;"/></td>
+				<td><input id="a3" style="width: 80px; font-size: 20px; height: 100px;text-align: center;"/></td>
+			</tr>
+			<div>
+			<tr>
+				<td>B</td>
+				<td><input id="b1"   style="width: 80px; font-size: 20px; height: 115px;text-align: center;"/></td>
+				<td><input id="b2"  style="width: 80px; font-size: 20px; height: 115px;text-align: center;"/></td>
+				<td><input id="b3"  style="width: 80px; font-size: 20px; height: 115px;text-align: center;"/></td>
+			</tr>
+			<tr>
+				<td>C</td>
+				<td><input id="c1"  style="width: 80px; font-size: 20px; height: 115px;text-align: center;"/></td>
+				<td><input id="c2"  style="width: 80px; font-size: 20px; height: 115px;text-align: center;"/></td>
+				<td><input id="c3"  style="width: 80px; font-size: 20px; height: 115px;text-align: center;"/></td>
+			</tr>
+			<tr >
+				<td colspan="2" style="height: 50px;">
+					<input type="submit" onclick="add()"  style="width:170px;font-size: 20px; height: 115px;text-align: center;" value="合计"></button>
+				</td>
+				<td style="height: 50px;">
+					<button type="reset" style="width:90px; font-size: 20px; height: 115px;text-align: center;" value="重置">重置</button>
+				</td style="height: 50px;">
+				<td><input type="button" id="result"  style="font-size: 20px;width:80px; height: 115px; text-align: center;"></button></td>
+			</tr>
+			
+		</table>
+		</form>
+	</body>
+</html>

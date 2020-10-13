@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>单道系统</title>
+		<style>
+			tr{
+				height: 100px;	
+			}
+			td{width: 80px;
+			color: black;
+			text-align: center;
+			}
+			#bt1{
+				height: 80px;
+			}
+			#bt2{
+				font-size: 30px;
+			}
+			#bgtr{
+				height: 50px;
+			}
+		</style>
+
+	</head>
+	<script type="text/javascript">
+	
+		function add(){
+			var a=fm.i1.value;
+			var b=fm.i2.value;
+			var c=fm.i3.value;
+			var d=fm.i4.value;
+			var e=fm.i5.value;
+			var f=fm.i6.value;
+			var g=fm.i7.value;
+			var h=fm.i8.value;
+			var i=fm.i9.value;
+			
+			var sum=parseInt(a)+parseInt(b)+parseInt(c)+parseInt(d)+parseInt(e)+parseInt(f)+parseInt(g)+parseInt(h)+parseInt(i);
+			
+			document.getElementById("result").value=sum;
+		}
+		
+	</script>
+	<body>
+		<form action="#"  name="fm"><table id="bg"  align="center" color: inherit; border="1px" cellspacing="0" >
+			<tr id="bt1">
+				<td colspan="5" align="center"><font id="bt2" face="华文新魏" color="black">单道程序系统</font></td>
+			</tr>
+			<tr id="bgtr">
+				<td style="color: black;">操作
+				</td>
+				<td style="color: black;">计算
+				</td>
+				<td style="color: black;">I/O
+				</td>
+				<td style="color: black;">计算
+				</td>
+			</tr>
+			<tr>
+				<td>A</td>
+				<td><input id="i7"    style="width: 80px; font-size: 20px; height: 100px;text-align: center;"/></td>
+				<td><input id="i8"  style="width: 80px; font-size: 20px; height: 100px;text-align: center;"/></td>
+				<td><input id="i9" style="width: 80px; font-size: 20px; height: 100px;text-align: center;"/></td>
+			</tr>
+			<div>
+			<tr>
+				<td>B</td>
+				<td><input id="i1"   style="width: 80px; font-size: 20px; height: 115px;text-align: center;"/></td>
+				<td><input id="i2"  style="width: 80px; font-size: 20px; height: 115px;text-align: center;"/></td>
+				<td><input id="i3"  style="width: 80px; font-size: 20px; height: 115px;text-align: center;"/></td>
+			</tr>
+			<tr>
+				<td>C</td>
+				<td><input id="i4"  style="width: 80px; font-size: 20px; height: 115px;text-align: center;"/></td>
+				<td><input id="i5"  style="width: 80px; font-size: 20px; height: 115px;text-align: center;"/></td>
+				<td><input id="i6"  style="width: 80px; font-size: 20px; height: 115px;text-align: center;"/></td>
+			</tr>
+			<tr >
+				<td colspan="2" style="height: 50px;">
+					<input type="submit" onclick="add()"  style="width:170px;font-size: 20px; height: 115px;text-align: center;" value="合计"></button>
+				</td>
+				<td style="height: 50px;">
+					<button type="reset" style="width:90px; font-size: 20px; height: 115px;text-align: center;" value="重置">重置</button>
+				</td style="height: 50px;">
+				<td><input type="button" id="result"  style="font-size: 20px;width:80px; height: 115px; text-align: center;"></button></td>
+			</tr>
+			
+		</table>
+		</form>
+	</body>
+</html>

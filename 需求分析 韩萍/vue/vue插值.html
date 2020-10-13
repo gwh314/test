@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue插值</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- 引入 vue.js -->
+    <script src="vue.js"></script>
+
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+        
+        .outer {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+            margin-bottom: 20px;
+        }
+        
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h3>vue.js基础课表</h3>
+        <div id="example">
+            <p class="lead bg-success">大家好，我叫{{user.name}},今年{{user.age}}了， 我在{{user.school}}学习web前端技术， 所学课程{{courses.join('、')}}包括等。
+            </p>
+
+            <!-- v-if -->
+            <p v-if="seen">你看见我了！</p>
+
+            <!-- v-bind 数据绑定 -->
+            <!--  把width属性和w变量绑定在一起 -->
+            <img src="1.jpg" v-bind:width="w" v-bind:alt="content">
+
+
+            <p v-if="score>=90">优秀</p>
+            <p v-else-if="score>80">良好</p>
+            <p v-else-if="score>70 ">较好</p>
+            <p v-else-if="score>60">及格</p>
+            <p v-else>不及格 </p>
+
+
+            <!-- v-model数据双向绑定 只能作用在表单元素中  -->
+            <input type="text" v-model="news">
+            <p>{{news}}</p>
+
+
+            <div class="container">
+
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <td>序号</td>
+                            <td>名称</td>
+
+                            <td>课时</td>
+
+                            <td>难度</td>
+
+                            <td>讲师</td>
+
+                            <td>操作</td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- v-for 循环遍历course里面的数据 -->
+                        <tr v-for="(item, index) in course" :key="index">
+                            <td>{{index+1}}</td>
+                            <td>{{item.title}}</td>
+                            <td>{{item.lesson}}</td>
+                            <td>{{item.level}}</td>
+                            <td>{{item.teacher}}</td>
+                            <td>
+                                <button class="btn btn-info btn-sm">
+                                       编辑 <span class="badge badge-primary"></span>
+                               </button>
+
+                                <button class="btn btn-danger btn-sm">
+                                        删除 <span class="badge badge-danger"></span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+            </div>
+
+            <!-- v-on 事件监听 -->
+            <bUtton v-on:click='click'>点一下</bUtton>
+
+            <form action="">
+                <ul>
+                    <li>姓名：<input type="text" v-on:blur="b" v-on:focus="a"></li>
+                    <li>密码：<input type="text"></li>
+                </ul>
+            </form>
+
+
+            <!-- v-on 事件对象 通过传递$event 来获得事件对象 以$开头的说明是vue内置的东西   -->
+            <div class="box" v-on:click='shijian($event)'>
+
+                <!-- 修饰符  用来扩充完善当前事件-->
+                <div class="outer" v-on:click="outer">
+
+                    <!--修饰符 .stop阻止事件冒泡 -->
+                    <div class="inner" v-on:click.stop="inner"></div>
+                </div>
+
+                <!-- 按键修饰符 -->
+                <input type="text" v-on:keyup.ctrl.65="getCode()">
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var example = new Vue({
+            el: '#example',
+            data: {
+                user: {
+                    name: '小米',
+                    age: 16,
+                    school: '传智播客'
+                },
+                seen: true,
+                courses: ['html', 'css', 'js'],
+                w: 100,
+                content: '这是一张图片',
+                score: 82,
+
+                course: [{
+                    title: 'HTML',
+                    lesson: 10,
+                    level: '简单',
+                    teacher: '小明'
+                }, {
+                    title: 'CSS',
+                    lesson: 12,
+                    level: '一般',
+                    teacher: '小红'
+                }, ],
+
+                news: 'hhhh'
+
+            },
+            methods: {
+                click() {
+                    alert('www.baidu.com')
+                },
+
+                a() {
+                    console.log('获得了焦点')
+                },
+
+                b() {
+                    console.log('失去了焦点')
+                },
+
+                shijian(ev) {
+                    console.log(ev)
+                },
+
+                outer() {
+                    console.log('outer')
+                },
+                inner() {
+                    console.log('inner')
+                },
+                getCode() {
+                    console.log('111')
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

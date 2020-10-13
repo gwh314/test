@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<style>
+		#content{
+			width:1000px;
+			display:flex;
+			margin:0 auto;
+			flex-wrap:wrap;/*换行*/
+			justify-content:space-between;/*两端对齐*/
+		}
+		#content>div{background:#069;}
+		#content>div:first-child{
+			flex-basis:60.9%;/*609px*/
+			margin-bottom:10px;
+		}
+		#content>div:nth-child(2){
+			flex-basis:38.1%;/*381px*/
+			margin-bottom:10px;
+		}
+		#content>div:nth-child(3){
+			flex-basis:37.7%;
+		}
+		.top_height{height:377px;}
+		.bottom_height{
+			height:233px;
+		}
+		.small_div{
+			flex-basis:19.8%;
+		}
+	</style>
+ </head>
+ <body>
+		<div id="content">
+			<div class="top_height"></div>
+			<div class="top_height"></div>
+			<div class="bottom_height"></div>
+			<div class="bottom_height small_div"></div>
+			<div class="bottom_height small_div"></div>
+			<div class="bottom_height small_div"></div>
+		</div>
+ </body>
+</html>

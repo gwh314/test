@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<style>
+		#parent{
+			width:570px;
+			border:2px solid #f00;
+			display:flex;/*x主轴,主轴和交叉轴起点对齐,左上角*/
+			flex-wrap:wrap;
+		}
+		#d1,#d2,#d3{width:200px;height:200px;
+			font:50px jokerman;
+		}
+		#d1{background:#faa;flex-basis:100px;}
+		#d2{background:#ff0;flex-basis:100px;}
+		#d3{background:#0ff;flex-basis:100px;}
+	</style>
+ </head>
+ <body>
+		<div id="parent">
+			<div id="d1">1</div>
+			<div id="d2">2</div>
+			<div id="d3">3</div>
+		</div>
+ </body>
+</html>

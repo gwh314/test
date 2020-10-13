@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="example">
+        <input type="text" v-model="message">
+        <p>{{message}}</p>
+        <span v-bind:title="hh">鼠标悬停几秒钟查看此处动态绑定的信息</span>
+        <p v-if="seen">你现在看到我了</p>
+        <h1>site:{{site}}</h1>
+        <h1>url:{{url}}</h1>
+        <h1>{{details()}}</h1>
+        <button v-on:click="sayhi">按钮</button>
+    </div>
+
+    <script>
+        //使用步骤 传入参数 对象
+
+        var users = [{
+            name: '小明',
+            age: 18
+        }, {
+            name: '小红',
+            age: 18
+        }];
+        new Vue({
+            el: '#example',
+            data: {
+                message: 'hello',
+                hh: '页面加载于' + new Date().toLocaleString(),
+                seen: true,
+                site: '菜鸟教程',
+                url: 'www.runoob.com',
+
+
+            },
+            methods: {
+                details() {
+                    return this.site + "-学的不仅是技术，更是梦想";
+                },
+                sayhi() {
+                    // alert("你好");
+                    console.log('hi');
+                    console.log(this.message);
+                    console.log(this.message = "你好")
+                }
+            },
+        });
+    </script>
+
+</body>
+
+</html>

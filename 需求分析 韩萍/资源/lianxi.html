@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcuticon" type="image/x-icon" href="images/lala.jpg">
+    <title>各种选择器的使用</title>
+</head>
+<style>
+    ul {
+        margin: 0;
+        width: 500px;
+        border: 1px dashed #666;
+        padding: 10px 5px;
+    }
+    /*子块撑开父级*/
+    
+    ul:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    
+    ul li {
+        list-style: none;
+        float: left;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        border-radius: 50%;
+        box-shadow: 2px 2px 2px #888;
+        background-color: skyblue;
+        margin-right: 5px;
+    }
+    /*以上是做10个小球没有别的意思*/
+    /*用#开头表示id选择器*/
+    
+    #zhuzhu {
+        background-color: #00CC66;
+    }
+    /*用点表示类选择器*/
+    
+    .gaga {
+        background-color: #0000FF;
+    }
+    /*什么都不加标签选择器*/
+    
+    ul {
+        background-color: #3a6c7e;
+    }
+    /*标签属性值选择器*/
+    
+    ul li[id="zhuzhu"] {
+        font-weight: bold;
+        color: red;
+    }
+    /*标签属性选择器*/
+    
+    ul li[class] {
+        font-size: 30px;
+    }
+    /*选中以某一属性值开头的元素*/
+    
+    ul li[class^="xixi"] {
+        background-color: red;
+    }
+    /*选中一个属性值结尾的元素标记白色*/
+    
+    ul li[class$="lulu"] {
+        background-color: white;
+    }
+    /*/选中属性中任意一个值或者字串字母子串后字体标记为粉色*/
+    
+    ul li[class*="gaga"] {
+        color: pink;
+    }
+    /*后代选择器也叫层级选择器*/
+    
+    body ul li a {
+        text-decoration: none;
+        font-size: 40px;
+    }
+    /*父子选择器*/
+    
+    ul>li[class="lala"] {
+        background-color: black;
+        color: white;
+    }
+    /*兄弟选择器*/
+    
+    ul li[class="lala"]+li {
+        background-color: gold;
+    }
+    /*兄弟相邻选择器*/
+    /*相邻的所有*/
+    
+    ul li[class="lala"]~* {
+        border: #0000FF solid 1px;
+    }
+</style>
+
+
+
+
+<body>
+    <ul>
+        <li id="zhuzhu">1</li>
+        <li class="gaga">2</li>
+        <li class="xixi zhuzhu gaga lanlan">3</li>
+        <li class="dudu  niuniu lulu">4</li>
+        <li><a href="">5</a></li>
+        <li class="lala">6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+
+
+    </ul>
+    <hr>
+    <br>
+    <hr>
+    <br>
+    <style>
+        /*伪类选择器: 链接*/
+        /*访问前*/
+        
+        div a:link {
+            padding: 20px;
+            background-color: greenyellow;
+            color: white;
+        }
+        /*访问后*/
+        
+        div a:visited {
+            background-color: #0000FF;
+            color: black;
+        }
+        /*鼠标点击时*/
+        
+        div a:active {
+            background-color: gold;
+            color: black;
+        }
+        /*鼠标悬停时*/
+        
+        div a:hover {
+            background-color: greenyellow;
+            color: red;
+        }
+        /*获取焦点时*/
+        
+        div a:focus {
+            background-color: black;
+            color: #0000FF;
+        }
+    </style>
+    <div><a href="http://jd.com" style="font-size:40px;text-decoration: none;">来呀，点我呀</a></div>
+    <br>
+
+    <ol>
+        <li>我是最棒的1</li>
+        <li>我是最棒的2</li>
+        <li>我是最棒的3</li>
+        <li>我是最棒的4</li>
+        <li>我是最棒的5</li>
+        <li>我是最棒的6</li>
+        <li>我是最棒的7</li>
+        <li>我是最棒的8</li>
+        <li>我是最棒的9</li>
+        <li>我是最棒的10</li>
+    </ol>
+    <style>
+        /*伪类选择器: 位置*/
+        /*选择集合中的第一个元素*/
+        
+        ol li:first-child {
+            background-color: #0000FF
+        }
+        /*选择集合中的最后一个子元素*/
+        
+        ol li:last-child {
+            background-color: black;
+            color: white;
+        }
+        /*按索引选择指定的元素,注意从1开始计数*/
+        
+        ol li:nth-child(6) {
+            background-color: wheat;
+        }
+        /* 选择所有的偶数li字体加粗 用even或者2n*/
+        
+        ol li:nth-child(2n) {
+            font-weight: bold;
+        }
+        /* 选择所有的基数li字体变红用add或者2n+1 */
+        
+        ol li:nth-child(odd) {
+            color: red;
+        }
+        /*伪类选择器: 根据子元素数量*/
+    </style>
+
+    <br>
+    <ol>
+        <li>我是有一个</li>
+    </ol>
+    <ol>
+        <li>我是有三个1</li>
+        <li>我是有三个2</li>
+        <li>我是有三个3</li>
+    </ol>
+    <ol>
+        <li>我是有四个1</li>
+        <li>我是有四个2</li>
+        <li>我是有四个3</li>
+        <li>我是有四个4</li>
+    </ol>
+
+    <style>
+        /*伪类选择器: 根据子元素数量*/
+        /*选择具有唯一子元素的元素*/
+        
+        ol li:only-child {
+            border: #0000FF 2px solid
+        }
+        /* 选择指定类型的唯一子元素 */
+        
+        ol li:only-of-type {
+            font-size: 30px
+        }
+        /* 倒数选择指定位置的元素 */
+        
+        ol li:nth-last-child(2) {
+            font-size: 25px
+        }
+        /*选择指定父级的第二个<li>子元素*/
+        
+        ol li:nth-of-type(2) {
+            font-size: 35px
+        }
+        /*选择页面中内容为空的元素*/
+        
+         :empty {
+            width: 200px;
+            height: 200px;
+            background-color: #0000FF;
+        }
+        
+         :empty:after {
+            content: '我在这里呀！空元素，终于联系差不多了！';
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

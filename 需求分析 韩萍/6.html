@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            margin: 0;
+            border: 1px dashed #666;
+            width: 500px;
+            padding: 10px 5px;
+        }
+        
+        ul:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        
+        ul li {
+            list-style: none;
+            float: left;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            box-shadow: 2px 2px 2px;
+            background-color: skyblue;
+            margin: 5px;
+        }
+        
+        #one {
+            background-color: green;
+            /* text-decoration-color: red; */
+        }
+        
+        .two {
+            background-color: blue;
+        }
+        
+        .three {
+            background-color: red;
+        }
+        
+        .four {
+            background-color: white;
+        }
+        
+        .six {
+            background-color: black;
+            color: white;
+        }
+        
+        .seven {
+            background-color: yellow;
+        }
+        
+        ul {
+            background-color: cadetblue;
+        }
+        
+        ul li[id="one"] {
+            font-weight: bold;
+            color: red;
+        }
+        
+        ul li[class] {
+            font-size: 30px;
+        }
+        
+        .two,
+        .three {
+            color: pink;
+        }
+        
+        .five {
+            color: purple;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li id="one">1</li>
+        <li class="two">2</li>
+        <li class="three">3</li>
+        <li class="four">4</li>
+        <li class="five">5</li>
+        <li class="six">6</li>
+        <li class="seven">7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+
+</body>
+
+</html>

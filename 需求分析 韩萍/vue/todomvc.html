@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todomvc</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- 引入 vue.js -->
+    <script src="vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/todomvc-app-css@2.2.0/index.css" />
+    <!-- <style>
+        [v-cloak] {
+            display: none;
+        } -->
+    </style>
+</head>
+
+<body>
+
+    <!-- <section class="todoapp">
+        <h1>todos</h1>
+        <input type="checkbox" id="toggle-all" class="toggle-all">
+        <label for="toggle-all">Mark all as complete</label>
+        <ul class="todo-list">
+            <li class="completed" v-for="(item, index) in todos" :key="index">
+                <div class="view">
+                    <input class="toggle" type="checkbox" checked>
+                    <label>{{item.title}}</label>
+                    <button class="destory"></button>
+                </div>
+                <input class="edit" value="create a TodoMVC template">
+            </li>
+
+        </ul>
+    </section> -->
+    <section class="todoapp">
+        <header class="header">
+            <h1>todos</h1>
+            <input class="new-todo" v-model="todo" v-on:keyup.enter="addtodo" placeholder="What needs to be done?" autofocus />
+        </header>
+        <section class="main">
+            <input id="toggle-all" class="toggle-all" type="checkbox" />
+            <label for="toggle-all">Mark all as complete</label>
+            <ul class="todo-list">
+                <li v-bind:class="{completed:item.completed}" v-for="(item, index) in todos" :key="index">
+                    <div class="view">
+                        <input class="toggle" v-bind:checked="item.completed" type="checkbox" />
+                        <label>{{item.title}} </label>
+                        <button class="destroy" @click="removetodo(item)"></button>
+                    </div>
+                    <input class="edit" type="text" />
+                </li>
+            </ul>
+        </section>
+        <footer class="footer">
+            <span class="todo-count">
+            <strong> </strong>  
+          </span>
+            <ul class="filters">
+                <li>
+                    <a href="#/all" :class="{ selected: visibility == 'all' }">All</a>
+                </li>
+                <li>
+                    <a href="#/active" :class="{ selected: visibility == 'active' }">Active</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#/completed"
+                      :class="{ selected: visibility == 'completed' }"
+                      >Completed</a
+                    >
+                  </li>
+          </ul>
+          <button
+        
+          >
+            Clear completed
+          </button>
+        </footer>
+      </section>
+      <footer class="info">
+        <p>Double-click to edit a todo</p>
+        <p>Written by <a href="http://evanyou.me">Evan You</a></p>
+                    <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+        </footer>
+
+
+
+        <script>
+            var TODOS = new Vue({
+                el: '.todoapp',
+                data: {
+                    todo: '',
+                    todos: [{
+                            title: '起床',
+                            completed: true
+                        }, {
+                            title: '上课',
+                            completed: false
+                        }, {
+                            title: '逛街',
+                            completed: false
+                        },
+
+
+
+                    ],
+
+                },
+                methods: {
+                    addtodo() {
+                        console.log(this.todo);
+
+                        // 如果操作是空 则返回
+                        if (!this.todo) return;
+                        // 添加新事项
+                        this.todos.push({
+                                title: this.todo,
+                                completed: false
+                            })
+                            // 清空表单
+                        this.todo = '';
+                    },
+                    removetodo(item) {
+
+                        this.todos.splice(item, 1);
+                    }
+                },
+
+            });
+        </script>
+</body>
+
+</html>
